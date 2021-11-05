@@ -33,8 +33,7 @@ applications:
         - API_PORT: $API_PORT
       #depends_on:
       #  - promotions-manager-api
-    
-  - promotions-manager-api:      
+- promotions-manager-api:      
       depends_on: 
         - promotions-manager-docdb
       input_values:
@@ -44,12 +43,16 @@ applications:
         - RELEASE_NUMBER: $RELEASE_NUMBER
         - API_BUILD_NUMBER: $API_BUILD_NUMBER
   
- services:
+services:
   - promotions-manager-docdb:
       input_values:
         - USERNAME: $DB_USERNAME
         - PASSWORD: $DB_PASSWORD
         - SANDBOX_ID: ${SandboxID}
+
+debugging:
+  availability: on    
+
 
 debugging:
   availability: on
